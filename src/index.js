@@ -18,13 +18,12 @@ formInputNode.addEventListener('submit', onFormInput);
 
 async function onFormInput(e) {
   e.preventDefault();
-
+  btnLoad.classList.add('hidden');
   searchImageService.resetPage();
   searchImageService.galleryContainer.innerHTML = '';
 
   searchImageService.SearchValue = encodeURIComponent(inputNode.value);
   if (searchImageService.SearchValue === '') {
-    // alert('Incorrect input!!!!!!');
     Notify.info('Sorry, there are no images matching your search query. Please try again.');
     return false;
   } else {
